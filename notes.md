@@ -36,3 +36,21 @@ Like using AddGrade
 
 What does it mean for a method to be static? Like static void Main
 I don't get it
+
+Testing
+---------------
+attributes, like [Fact] are attached to whatever follows it
+The test will look for parts of code with Fact attached to it
+Triple A of testing = arrange, act, assert
+To allow us to access classes from our project, we needed to add a reference to the project. u can do this in the terminal. navigate to Gradebook.Tests, then run: dotnet add reference ../../src/GradeBook/GradeBook.csproj 
+Now we can instantiate a Book for our test
+
+Reference types vs value types
+-----------------------------
+a reference variable, like var b = new Book("grades"), is referencing another part of memory, references the Book Object
+var x = 23 is a value type. it isn't referencing anything, it is holdign a value
+
+A solution file is a file that keeps track of multiple projects
+dotnet new sln creates a new solution file
+dotnet sln add src/GradeBook/GradeBook.csproj  -- adds a project to the sln
+

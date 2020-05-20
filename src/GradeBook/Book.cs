@@ -3,7 +3,8 @@ using System;
 using System.Collections.Generic;
 
 namespace GradeBook{
-    class Book{
+    //make the class public so we can use it in our unit testing project
+    public class Book{
         //here is our constructor method. has to have the same name as 
         //the class, and no return type
         public Book(string name){
@@ -13,20 +14,21 @@ namespace GradeBook{
             this.name = name;
         }
 
-        public void ShowStatistics()
+        //this methods return type is Statistics, a class in the Statistics.cs file
+        public Statistics GetStatistics()
         {
-            var result = 0.0;
-            var highGrade = double.MinValue;
-            var lowGrade = double.MaxValue;
-            foreach (double number in grades)
+            var result = new Statistics();
+            result.Average = 0.0;
+            result.High = double.MinValue;
+            result.Low = double.MaxValue;
+            foreach (double grade in grades)
             {
-                highGrade = Math.Max(number, highGrade);
-                lowGrade = Math.Min(number, lowGrade);
-                result += number;
+                result.High = Math.Max(grade, result.High);
+                result.Low = Math.Min(grade, result.Low);
+                result.Average += grade;
             }
-            result /= grades.Count;
-            System.Console.WriteLine($"average: {result}, lowest: {lowGrade}, highest: {highGrade}");
-
+            result.Average /= grades.Count;
+            return result;
         }
 
         public void AddGrade(double grade){
