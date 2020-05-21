@@ -54,3 +54,9 @@ A solution file is a file that keeps track of multiple projects
 dotnet new sln creates a new solution file
 dotnet sln add src/GradeBook/GradeBook.csproj  -- adds a project to the sln
 
+Whenever you are working with something thjat has been defined by a class, then you are working with a reference type
+
+string is a reference type that behaves like a value type
+int, bool, double etc. are all value types. string is a special case
+
+dotnet keeps track of everything u have created. it knows when there is a variable that is empty, and will get rid of it in the memory. don't have to do it manually

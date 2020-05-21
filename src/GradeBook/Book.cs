@@ -11,7 +11,7 @@ namespace GradeBook{
             grades = new List<double>();
             //take the incoming name argument and assign it to the name field
             //this.name is referiing to the name field down at teh bottom of the class
-            this.name = name;
+            this.Name = name;
         }
 
         //this methods return type is Statistics, a class in the Statistics.cs file
@@ -37,6 +37,6 @@ namespace GradeBook{
         //this is a field, not a variable. now any other class has access to the grades field
         //need to initialize it. do this with a constructor
         private List<double> grades;
-        private string name;
+        public string Name;
     }
 }
