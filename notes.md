@@ -60,3 +60,9 @@ string is a reference type that behaves like a value type
 int, bool, double etc. are all value types. string is a special case
 
 dotnet keeps track of everything u have created. it knows when there is a variable that is empty, and will get rid of it in the memory. don't have to do it manually
+
+JUMPING STATEMENTS
+to jump over lines of code, you can use the break statement to end a loop early
+break;
+
+continue; can be used to skip over the rest of the code in a loop, but continue to do the loop after skipping the remaining code for that iteration of the loop
