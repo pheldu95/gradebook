@@ -66,3 +66,6 @@ to jump over lines of code, you can use the break statement to end a loop early
 break;
 
 continue; can be used to skip over the rest of the code in a loop, but continue to do the loop after skipping the remaining code for that iteration of the loop
+
+EVENTS
+not used much anymore

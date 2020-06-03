@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 
 namespace GradeBook{
+    public delegate void GradeAddedDelegate(object sender, EventArgs args);
+    
     //make the class public so we can use it in our unit testing project
     public class Book{
         //here is our constructor method. has to have the same name as 
@@ -65,7 +67,7 @@ namespace GradeBook{
             return result;
         }
         //method for if they pass in a letter grade instead of a number
-        public void AddLetterGrade(char letter){
+        public void AddGrade(char letter){
             switch(letter){
                 case 'A':
                     AddGrade(90);
@@ -85,13 +87,37 @@ namespace GradeBook{
         public void AddGrade(double grade){
             if(grade <= 100 && grade >= 0){
                 grades.Add(grade);
+                if(GradeAdded != null){
+                    //invoke the delegate
+                    GradeAdded(this, new EventArgs());
+                }
             }else{
                 throw new ArgumentException($"Invalid {nameof(grade)}");
             }
         }
+
+        //field for the delegate. has a grade added event
+        public event GradeAddedDelegate GradeAdded;
+
         //this is a field, not a variable. now any other class has access to the grades field
         //need to initialize it. do this with a constructor
         private List<double> grades;
-        public string Name;
+        
+
+        //this is a property that can be read by the program.
+        //so the user can see the name of the book but the book is still private
+        public string Name{
+           get; 
+           //private makes it so the name cannot be changed after 
+            //making the book. this is a read only property
+           set;
+        }
+
+        // //a readonly can only be assigned in a constructor. can't change it in a different method 
+        // readonly string category = "Science";
+
+        //const even more strict. can never be changed. not a variable
+        //developers often make them capitalized
+        public const string CATEGORY = "Science";
     }
 }
